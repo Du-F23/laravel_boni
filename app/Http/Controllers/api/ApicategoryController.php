@@ -4,7 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\Category;
+use App\Models\Category;
 
 class ApicategoryController extends Controller
 {
@@ -15,7 +15,8 @@ class ApicategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return response()->json($categories);
     }
 
     /**
@@ -45,9 +46,9 @@ class ApicategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $categories)
     {
-        //
+        return response()->json($categories);
     }
 
     /**
